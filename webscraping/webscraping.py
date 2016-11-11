@@ -67,14 +67,14 @@ for page in range(1,pageNum+1):
     urllist_set.add(requests.get(imgurl['href'], cookies = cookie).url)
     image_count +=1
 
-fo = open("C:/MyProjects/temp/%s"%user_id, "wb")
+text_path=os.getcwd()+'\\%d'%user_id
+fo = open(text_path, "wb")
 fo.write(result.encode(encoding ='utf-8'))
 fo.close()
-word_path=os.getcwd()+'\\%d'%user_id
 print('文字微博爬取完毕')
 
 link = ""
-fo2 = open("C:/MyProjects/temp/%s_imageurls"%user_id, "wb")
+fo2 = open(text_path+"_imageurls", "wb")
 for eachlink in urllist_set:
   link = link + eachlink +"\n"
 fo2.write(link.encode(encoding ='utf-8'))
@@ -109,5 +109,5 @@ else:
       print("该图片下载失败:%s"%imgurl)
     x+=1
     
-print('原创微博爬取完毕，共%d条，保存路径%s'%(word_count-4,word_path))
+print('原创微博爬取完毕，共%d条，保存路径%s'%(word_count-4,text_path))
 print('微博图片爬取完毕，共%d张，保存路径%s'%(image_count-1,image_path))
