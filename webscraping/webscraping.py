@@ -101,9 +101,9 @@ else:
       request=urllib.request.Request(imgurl,None,headers)
       response = urllib.request.urlopen(request)
       data = response.read()
-      jpgfile = open(temp, "wb");
-      jpgfile.write(data);
-      jpgfile.close();
+      jpgfile = open(temp, "wb")
+      jpgfile.write(data)
+      jpgfile.close()
       
     except:
       print("该图片下载失败:%s"%imgurl)
